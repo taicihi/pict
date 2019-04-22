@@ -4,7 +4,8 @@ protect_from_forgery with: :exception
 add_flash_types :success, :info, :warning, :danger
 
 # 課題追加部分
-helper_method :current_user,
+helper_method :current_user, :logged_in?
+
 #ここまで
 
 def current_user
