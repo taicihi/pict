@@ -29,7 +29,7 @@
             <li>
               <%= link_to new_topic_path do %>
                <!--追加-->
-               <% if login? %>
+               <% if logged_in? %>
                 <%= image_tag "icons/camera.png" %>
                <% end %>
                <!--ここまで-->
