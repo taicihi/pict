@@ -11,13 +11,10 @@ class Topic < ApplicationRecord
       :maximum => 0.5.megabytes.to_i 
     } 
     
-  # validates :image, presence: true,  
-  #                   file_size: {maximum: 10.megabytes.to_i}, 
-  #                   file_content_type: { allow: ['image/jpeg', 'image/png','image/jpg'] }
-  
- 
   
   belongs_to :user
   
   mount_uploader :image, ImageUploader
+  
+  has_many :favorites, through: :favorites, source: 'user'
 end
