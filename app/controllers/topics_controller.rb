@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
   
   def index
-    @topics = Topic.all.includes(:favorite_users)
+    @topics = Topic.all.includes(:favorite_users, :comment_users)
   end
   
   def new
@@ -18,6 +18,13 @@ class TopicsController < ApplicationController
       render :new
     end
   end
+  # 追加
+  def show
+    @topic = Topic.includes(:user).find(params[:id])
+    @comments = @topic.comments.includes(:user).all
+    @comment  = @topic.comments.build(user_id: current_user.id) if current_user
+  end
+  #ここまで
 
   private
   def topic_params
