@@ -25,6 +25,8 @@ class TopicsController < ApplicationController
     @comment  = @topic.comments.build(user_id: current_user.id) if current_user
   end
   #ここまで
+  
+  
 
   private
   def topic_params
