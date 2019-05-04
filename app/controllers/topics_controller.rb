@@ -5,7 +5,8 @@ class TopicsController < ApplicationController
   end
   
   def new
-    @topic = Topic.new
+   @topic = Topic.new
+  # @image = Image.all
   end
   
   def create
