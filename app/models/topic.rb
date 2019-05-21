@@ -8,8 +8,11 @@ class Topic < ApplicationRecord
   validates :image, 
     :presence => true, 
     :file_size => { 
-      :maximum => 10.megabytes.to_i 
-    } 
+       :less_than => 10.megabytes.to_i 
+    },
+    :file_content_type => {
+       :allow => ['image/jpeg', 'image/png', 'image/jpg']
+    }
     
   
   belongs_to :user

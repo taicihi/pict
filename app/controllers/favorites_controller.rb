@@ -26,5 +26,18 @@ class FavoritesController < ApplicationController
     end
   end
   
+  private
+  def log_in(user)
+    session[:user_id] = user.id
+  end
+  
+  def session_params
+    params.require(:session).permit(:email, :password)
+  end
+  
+  def favorite_params
+    params.require(:favorite).permit(:topic_id)
+  end
+  
   
 end
